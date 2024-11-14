@@ -1,0 +1,20 @@
+From,To,Duration
+New York, Chicago, 4
+New York, Los Angeles, 10
+New York, Atlanta, 5
+New York, Boston, 3
+Chicago, Denver, 4
+Chicago, Los Angeles, 6
+Chicago, Houston, 3
+Los Angeles, San Francisco, 2
+Los Angeles, Seattle, 8
+Los Angeles, Houston, 7
+San Francisco, Seattle, 4
+Houston, Miami, 5
+Houston, Atlanta, 4
+Denver, San Francisco, 6
+Denver, Atlanta, 7
+Atlanta, Miami, 3
+Boston, Miami, 8
+Boston, Denver, 9
+Seattle, Boston, 10

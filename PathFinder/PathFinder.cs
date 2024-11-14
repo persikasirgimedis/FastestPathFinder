@@ -35,13 +35,13 @@ public class PathFinder
             if (mainPath[0] == from &&
                 mainPath[1] == to)
             {
-                paths.Add(new List<string[]>{mainPath});
+                paths.Add(new List<string[]> { mainPath });
                 continue;
             }
             else if (mainPath[0] == to &&
                      mainPath[1] == from)
             {
-                paths.Add(new List<string[]>{new []{mainPath[1], mainPath[0], mainPath[2]}});
+                paths.Add(new List<string[]> { new[] { mainPath[1], mainPath[0], mainPath[2] } });
                 continue;
             }
 
@@ -53,7 +53,7 @@ public class PathFinder
             }
             else if (mainPath[1] == from)
             {
-                newPath.Add(new []{mainPath[1], mainPath[0], mainPath[2]});
+                newPath.Add(new[] { mainPath[1], mainPath[0], mainPath[2] });
                 paths.AddRange(FindDeeperPath(mainPath[0], to, newPath, pathsMap));
             }
         }
@@ -111,7 +111,7 @@ public class PathFinder
                      mapPath[1] == from)
             {
                 var newPath = new List<string[]>(path);
-                newPath.Add(new []{mapPath[1], mapPath[0], mapPath[2]});
+                newPath.Add(new[] { mapPath[1], mapPath[0], mapPath[2] });
                 paths.Add(newPath);
                 continue;
             }
@@ -125,7 +125,7 @@ public class PathFinder
             else if (mapPath[1] == from)
             {
                 var newPath = new List<string[]>(path);
-                newPath.Add(new []{mapPath[1], mapPath[0], mapPath[2]});
+                newPath.Add(new[] { mapPath[1], mapPath[0], mapPath[2] });
                 paths.AddRange(FindDeeperPath(mapPath[0], to, newPath, pathsMap));
                 continue;
             }
