@@ -14,7 +14,7 @@ namespace ConsoleApp4.Repositories
             _filePath = filePath;
         }
 
-        public Task<IEnumerable<RouteRecord>> GetAllAsync()
+        public IEnumerable<RouteRecord> GetAll()
         {
             var config = new CsvConfiguration(CultureInfo.InvariantCulture)
             {
@@ -25,7 +25,7 @@ namespace ConsoleApp4.Repositories
             using var reader = new StreamReader(_filePath);
             using var csv = new CsvReader(reader, config);
             var records = csv.GetRecords<RouteRecord>();
-            return Task.FromResult(records.ToList().AsEnumerable());
+            return records.ToList().AsEnumerable();
         }
     }
 }

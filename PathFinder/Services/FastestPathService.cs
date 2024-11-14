@@ -2,9 +2,9 @@
 
 public class FastestPathService(IRoutesRepository routesRepository) : IFastestPathService
 {
-    public async Task<TimeSpan> FindFastestPathDurationAsync(City arrival, City departure)
+    public TimeSpan FindFastestPathDuration(City arrival, City departure)
     {
-        var fastes = await FindFastestVertexAsync(arrival, departure);
+        var fastes = FindFastestVertex(arrival, departure);
 
         if (fastes == null)
         {
@@ -14,18 +14,18 @@ public class FastestPathService(IRoutesRepository routesRepository) : IFastestPa
         return fastes.MinDuration;
     }
 
-    public async Task<Vertex?> FindFastestVertexAsync(City arrival, City departure)
+    public Vertex? FindFastestVertex(City arrival, City departure)
     {
-        var vertices = await FindFastestPathsAsync(arrival);
+        var vertices = FindFastestPaths(arrival);
 
-        var fastes = vertices.FirstOrDefault(x => x.Point == departure);
+        var vertix = vertices.FirstOrDefault(x => x.Point == departure);
 
-        return fastes;
+        return vertix;
     }
 
-    public async Task<IEnumerable<Vertex>> FindFastestPathsAsync(City arrival)
+    public IEnumerable<Vertex> FindFastestPaths(City arrival)
     {
-        var routes = await routesRepository.GetAllAsync();
+        var routes = routesRepository.GetAll();
         var edges = RouteEdgeLoader.LoadAllEdges(routes.Select(x => x.ToDomain()));
 
         var finder = new FastestPathFinder(edges);

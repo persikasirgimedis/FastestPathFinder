@@ -2,6 +2,6 @@
 {
     public interface IRoutesRepository
     {
-        public Task<IEnumerable<RouteRecord>> GetAllAsync();
+        public IEnumerable<RouteRecord> GetAll();
     }
 }
